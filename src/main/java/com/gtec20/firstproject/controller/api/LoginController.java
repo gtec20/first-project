@@ -18,7 +18,32 @@ public class LoginController {
 
     @GetMapping("")
     public String isLogin(@ModelAttribute("loginDto") LoginDto loginDto) {
-        return "";
+        int idx = getIdIndex(loginDto.getId());
+        if(idx == -1) {
+            return "로그인에 실패하였습니다. \n존재하지 않는 아이디 입니다.";
+        }
+
+        if(!isPwCheck(idx, loginDto.getPw())) {
+            return "로그인에 실패하였습니다. \n비밀번호를 잘못 입력하셨습니다.";
+        }
+
+        return String.format("로그인에 성공하였습니다. \n %s님 환영합니다!", nameList.get(idx));
     }
 
+    private int getIdIndex(String inputId) {
+        for(int i = 0; i < idList.size(); i++) {
+            String nowId = idList.get(i);
+            if(nowId.equals(inputId)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private boolean isPwCheck(int idx, String inputPw) {
+        if(pwList.get(idx).equals(inputPw)) {
+            return true;
+        }
+        return false;
+    }
 }

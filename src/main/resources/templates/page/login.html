@@ -4,7 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>카카오계정</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
+<script>
+    function checkIdAndPw(id, pw) {
+        if(id.length < 1) {
+            alert('아이디를 입력해주세요.')
+            $('#email').focus();
+            return false;
+        }
+
+        if(pw.length < 1) {
+            alert('아이디를 입력해주세요.')
+            $('#email').focus();
+            return false;
+        }
+        return true;
+    }
+
+    $(document).ready(function () {
+        $('#login-btn').on('click', function () {
+            let id = $('#email').val();
+            let pw = $('#password').val();
+            if(!checkIdAndPw(id, pw)) {
+                return;
+            }
+
+            let url = '/api/login';
+            let data = { id: id, pw: pw };
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                data: data,
+                success: function (res) {
+                    alert(res);
+                },
+                error: function (err) {
+                    alert(err);
+                }
+            });
+        });
+    });
+</script>
 <style>
     * {
         font-family: -apple-system,Roboto,NotoSans,AppleSDGothicNeo,Malgun Gothic,맑은 고딕,돋움,dotum,sans-serif;
@@ -22,6 +64,9 @@
     }
     input {
         display: block;
+    }
+    button {
+        cursor: pointer;
     }
     #content {
         display: inline-block;
@@ -106,15 +151,15 @@
         <p class="logo"></p>
     </div>
     <div id="login-box">
-        <input class="login-input" placeholder="카카오메일 아이디, 이메일, 전화번호"/>
-        <input class="login-input" placeholder="비밀번호"/>
+        <input id="email" class="login-input" placeholder="카카오메일 아이디, 이메일, 전화번호"/>
+        <input id="password" class="login-input" placeholder="비밀번호"/>
         <div class="flex-start" style="margin-top: 25px;">
             <input id="login-save-btn" type="radio" style="margin-right: 15px; width: 15px; height: 15px;"/>
             <label for="login-save-btn" style="font-size: 14px; sline-height: 20px; color: #666;">간편호그인 정보 저장</label>
             <span id="info-icon" style="margin-left: 10px;"></span>
         </div>
         <div style="margin-top: 40px;">
-            <button style="width: 100%; height: 40px; border: 0; background-color: #fee500; border-radius: 5px;">로그인</button>
+            <button id="login-btn" style="width: 100%; height: 40px; border: 0; background-color: #fee500; border-radius: 5px;">로그인</button>
             <div style="display: flex;">
                 <div class="line"></div>
                 <p class="flex-center" style="width: 9%; color: #828282;">또는</p>

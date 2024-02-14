@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오계정</title>
+</head>
+<style>
+    * {
+        font-family: -apple-system,Roboto,NotoSans,AppleSDGothicNeo,Malgun Gothic,맑은 고딕,돋움,dotum,sans-serif;
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+    }
+
+    div, p, input, a {
+        margin: 0;
+        padding: 0;
+    }
+    input {
+        display: block;
+    }
+    #content {
+        display: inline-block;
+        overflow-x: hidden;
+        width: 100%;
+        font-size: 12px;
+        vertical-align: middle;
+        margin-top: 200px;
+    }
+    .flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .flex-start {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .logo {
+        width: 200px;
+        height: 70px;
+        zoom: 0.5;
+        background: url("/img/logo_kakao.png");
+    }
+    #login-box {
+        width: 580px;
+        height: 100%;
+        margin: 40px auto 42px;
+        padding: 55px 69px;
+        border: 1px solid rgba(0,0,0,.12);
+        font-size: 12px;
+        box-sizing: border-box;
+    }
+    #info-icon {
+        background: url("/img/ico_comm.png");
+        background-size: 300px auto;
+        width: 18px;
+        height: 18px;
+        background-position: -120px -110px;
+    }
+    #footer > * {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #footer-list > p {
+        margin: 0px 10px;
+        color: #4c4c4c;
+    }
+    .login-input {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        min-height: 45px;
+        padding: 10px 0 8px;
+        font-size: 18px;
+        line-height: 25px;
+        color: #191919;
+        background-color: transparent;
+        letter-spacing: 0;
+        box-sizing: border-box;
+        outline: 0 none;
+        caret-color: #191919;
+        opacity: 1;
+        border: solid #ccc;
+        border-width: 0 0 2px;
+    }
+    .line {
+        border-top: 1px solid rgba(0,0,0,.06);
+        margin: 30px auto;
+        width: 45%;
+    }
+    a:visited {
+        color: #4c4c4c;
+        /* text-decoration-line: none; */
+    }
+</style>
+<body>
+<div id="content">
+    <div class="flex-center" style="padding-top: 50px;">
+        <p class="logo"></p>
+    </div>
+    <div id="login-box">
+        <input class="login-input" placeholder="카카오메일 아이디, 이메일, 전화번호"/>
+        <input class="login-input" placeholder="비밀번호"/>
+        <div class="flex-start" style="margin-top: 25px;">
+            <input id="login-save-btn" type="radio" style="margin-right: 15px; width: 15px; height: 15px;"/>
+            <label for="login-save-btn" style="font-size: 14px; sline-height: 20px; color: #666;">간편호그인 정보 저장</label>
+            <span id="info-icon" style="margin-left: 10px;"></span>
+        </div>
+        <div style="margin-top: 40px;">
+            <button style="width: 100%; height: 40px; border: 0; background-color: #fee500; border-radius: 5px;">로그인</button>
+            <div style="display: flex;">
+                <div class="line"></div>
+                <p class="flex-center" style="width: 9%; color: #828282;">또는</p>
+                <div class="line"></div>
+            </div>
+            <button style="width: 100%; height: 40px; border: 0; background-color: #f0f0f0; border-radius: 5px;">QR코드 로그인</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 26px;">
+            <p style="color: #191919;">회원가입</p>
+            <div style="display: flex;">
+                <p style="margin-right: 5px; color: #191919;">계정 찾기</p>
+                <p style="color: #191919;">비밀번호 찾기</p>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footer-list">
+            <p>이용약관</p>
+            <p style="font-weight: 700;">개인정보 처리방침</p>
+            <p>운영정책</p>
+            <p>고객센터</p>
+            <p>공지사항</p>
+            <p>한국어</p>
+        </div>
+        <div>
+            <p style="color: rgba(0,0,0,.5);">Copyright ©<a href="https://www.kakaocorp.com/" style="font-weight: 700; cursor: pointer; text-decoration: none;">Kakao Corp.</a>All rights reserved.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
-    <!--<link rel="stylesheet" type="text/css" href="/static/css/login.css">-->
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
     <script>
+
+
         let url = '/api/login';
         let data = { id: id, pw: pw };
+
+        /*$(document).ready(function (){
+            $('#usermail, #userpw').on('keyup', function (){
+                var email = $('#usermail').val();
+                var password = $('#userpw').val();
+
+                if (id !== '' && pw !== ''){
+                    $('loginBtn').prop('disabled', false);
+                }
+                    $('#loginBtn').prop('disabled', true);
+            });
+        });*/
+
+
 
         $.ajax({
             url: url,
@@ -22,10 +39,9 @@
             }
         });
 
-
     </script>
-    <style>
 
+    <style>
         html[lang="ko-KR"], html[lang="ko"] {
             font-family: Roboto,"Noto Sans KR","Apple SD Gothic Neo","Nanum Gothic","Malgun Gothic",sans-serif;
         }
@@ -123,6 +139,8 @@
             opacity: 1;
             transition: opacity 500ms ease 0s;
         }
+
+
 
         button, input {
             font-family: inherit;
@@ -340,8 +358,6 @@
             position: relative;
             vertical-align: top;
         }
-
-
     </style>
 </head>
 <body>
@@ -356,7 +372,7 @@
     </nav>
     <main class="custom-back">
         <div src="https://an2-img.amz.wtchn.net/image/v2/v_rtGmsGmmSGuScg0hC76g.webp?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKdmNIUnpJanBiSW1KbklsMHNJbkFpT2lJdmRqSXZjM1J2Y21VdmFXMWhaMlV2TVRZNE5Ea3hOVGN4T1RJM05UQTVOVGs0TXlKOS5mRjlhcmYwZWNJd2cyNUl4YnBfZkZyV0E5UmpkMnhLdmVEUnhUUU1jUXN3" class="custom-back2">
-            ::before
+
             <main class="custom-mid mid1">
                 <div class="custom-mid2 mid2">
                     <div class="custom-log log1">
@@ -365,13 +381,13 @@
                     </div>
                     <form>
                         <div class="custom-mailpw mailpw">
-                            <input name="email" class="custom-mail2 mail2" placeholder="이메일 (example@gmail.com)" type="email" value>
+                            <input name="email" id="userid" class="custom-mail2 mail2" placeholder="아이디" type="text" value>
                         </div>
                         <div class="custom-mailpw mailpw">
-                            <input name="password" class="custom-pw2 pw2" placeholder="비밀번호" type="password" value>
+                            <input name="password" id="userpw" class="custom-pw2 pw2" placeholder="비밀번호" type="password" value>
                         </div>
                         <div class="custom-btn btn1">
-                            <button type="submit" class="custom-btn2 btn2" disabled>로그인</button>
+                            <button type="submit" id="loginBtn" class="custom-btn2 btn2" >로그인</button>
                         </div>
                     </form>
                     <p class="custom-log3 log3">다른 방법으로 로그인하기</p>
@@ -481,6 +497,7 @@
             </footer>
         </div>
     </main>
+
 </div>
 </body>
 </html>

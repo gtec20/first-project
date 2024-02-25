@@ -18,7 +18,26 @@ public class LoginController {
 
     @GetMapping("")
     public String isLogin(@ModelAttribute("loginDto") LoginDto loginDto) {
-        return "";
+
+        //loginDto에서 id랑 pw 가져오기
+        //일단 idList에서 id를 넣고 이 id에 일치하는 인덱스를 가져옴 변수에 넣기
+        //idList에 id가 존재하고 해당 인덱스가 pwList 보자 작다면
+        //그 인덱스 번호를 pwList에서 가져와 저장해둔다.
+        //만약 저장해둔 인덱스와 사용자가 입력한 pw가 일치한다면 로그인 성공
+
+        String id = loginDto.getId();
+        String pw = loginDto.getPassword();
+
+        if (id != null && pw != null) {
+            int idx = idList.indexOf(id);
+            if (idx != -1 && idx < pwList.size()) {
+                String savePassword = pwList.get(idx);
+                if (savePassword.equals(pw)) {
+                    return "로그인 성공";
+                }
+            }
+        }
+        return "로그인 실패";
     }
 
 }

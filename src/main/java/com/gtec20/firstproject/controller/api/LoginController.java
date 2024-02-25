@@ -18,37 +18,23 @@ public class LoginController {
 
     @GetMapping("")
     public String isLogin(@ModelAttribute("loginDto") LoginDto loginDto) {
-        System.out.println(loginDto);
-        int idx = IdCheck(loginDto.getId());
-
-        if (idx == -1) {
-            return "존재하지 않는 아이디 입니다";
-        }
-
-        if (PwCheck(idx, loginDto.getPw()) == -2) {
-            return "비밀번호가 일치하지 않습니다";
-        }
-
-        return "환영합니다 " + nameList.get(idx) + "님";
-
+        String sAnswer= idCheck(loginDto.getId(), loginDto.getPw());
+        return sAnswer;
     }
 
-    private int IdCheck(String LoginId) {
-        for(int i = 0; i < idList.size(); i++) {
-            String id = idList.get(i);
-            if (id.equals(LoginId)) {
-                return i;
+    private String idCheck(String loginId, String loginPw) {
+        String sId = loginId;
+        String sPw = loginPw;
+        for (int i = 0; i < idList.size(); i++) {
+            if(sId == idList.get(i)) {
+                if(sPw == pwList.get(i)) {
+                    return "환영합니다 " + nameList.get(i) + "님";
+                }else {
+                    return "비밀번호가 일치하지 않습니다";
+                }
             }
         }
-        return -1;
-    }
-
-    private int PwCheck(int idx, String LoginPw) {
-        String pw = pwList.get(idx);
-        if(pw.equals(LoginPw)){
-            return idx;
-        }
-        return -2;
+        return "존재하지 않는 아이디 입니다";
     }
 
 

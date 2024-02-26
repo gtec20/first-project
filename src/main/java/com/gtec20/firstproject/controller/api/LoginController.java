@@ -26,8 +26,8 @@ public class LoginController {
         String sId = loginId;
         String sPw = loginPw;
         for (int i = 0; i < idList.size(); i++) {
-            if(sId == idList.get(i)) {
-                if(sPw == pwList.get(i)) {
+            if(idList.get(i).equals(sId)) {
+                if(pwList.get(i).equals(sPw)) {
                     return "환영합니다 " + nameList.get(i) + "님";
                 }else {
                     return "비밀번호가 일치하지 않습니다";

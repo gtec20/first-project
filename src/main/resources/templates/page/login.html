@@ -25,7 +25,12 @@
             });
         });*/
 
-
+        $(document).ready(function (){
+            $('#loginBtn').click(function (){
+                var id = $('#userid').val();
+                var pw = $('#userpw').val();
+            });
+        });
 
         $.ajax({
             url: url,

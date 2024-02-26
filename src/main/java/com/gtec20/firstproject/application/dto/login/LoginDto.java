@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class LoginDto {
+    // rebase 해보세요.
     String id;
     String pw;
 
